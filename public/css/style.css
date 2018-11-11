@@ -1,0 +1,114 @@
+body {
+  font-family: 'Roboto';
+  font-size: 1.5em;
+}
+
+header {
+  background: linear-gradient(to left top, rgb(132, 0, 255), rgb(226, 11, 136));
+  color: white;
+  font-size: 40pt;
+  text-align: left;
+  padding: 20px;
+  margin-bottom: 1em;
+  font-weight: 100;
+}
+
+#new-todo-text {
+  width: 425px;
+  margin: 15px;
+  border-width: 1px;
+  font-weight: 400;
+  font-size: 1.5rem;
+  /* override to fill in input to match todos */
+  background-image: linear-gradient(rgb(242, 242, 242), rgb(242, 242, 242)), radial-gradient(circle at top left, #b60773, purple);
+}
+
+.wrapper {
+  width: 500px;
+  height: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#todos {
+  display: grid;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  padding: 15px;
+  color: black;
+}
+
+.todo {
+  background-color: rgb(242, 242, 242);
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}
+
+.list-text {
+  flex: 1;
+  padding: 4px;
+  padding-left: 10px;
+}
+
+.delete,
+.submit {
+  padding: 0;
+  border: none;
+  font: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  color: rgb(52, 65, 132);
+}
+
+.delete {
+  color: rgb(52, 65, 132);
+}
+
+.completed,
+.fancy-checkbox {
+  color: black;
+  cursor: pointer;
+}
+
+/* custom icon checkboxes */
+.fancy-checkbox input[type="checkbox"],
+.fancy-checkbox .checked {
+  display: none;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked~.checked {
+  display: inline-block;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked~.unchecked {
+  display: none;
+}
+
+/* rounded border with a gradient */
+.rounded-gradiant,
+.rounded-gradiant:focus {
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-image: linear-gradient(white, white), radial-gradient(circle at top left, #b60773, purple);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+/* media query for small screen */
+@media only screen and (max-width: 600px) {
+
+  .wrapper {
+      border: none;
+  }
+
+  .truncate {
+      width: 600px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+}

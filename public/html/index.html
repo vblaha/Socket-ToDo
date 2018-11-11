@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400" rel="stylesheet">
+  <title>Todo</title>
+</head>
+<body>
+  <header class="truncate">Veronica's to do list</header>
+  <div class="wrapper rounded-gradiant">
+    <form role="form">
+      <input text="text" id="new-todo-text" class="rounded-gradiant" placeholder="Add A New To Do..">
+      <button type="submit" class="add-new-todo submit"><i class="fas fa-share"></i></button>
+    </form>
+    <div id="todos">
+    </div>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
