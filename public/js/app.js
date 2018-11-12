@@ -12,35 +12,35 @@ $(function () {
     // ==========================================
     getTodos();
   }
+  const day = moment().format('ddd');
+  const month = moment().format('MMM Do'); 
+  const year = moment().format('YYYY');
 
+  const dayEl = $('<span>').addClass('day').text(day)
+
+  const monthEl = $('<div>').addClass('month').text(month)
+  const yearEl = $('<div>').addClass('year').text(year)
+  const dateEl = $('<div>').append(monthEl, yearEl)
+
+  $('.date').append(dayEl, dateEl);
+
+
+  
   /**
    * TODO schema = { text: 'my todo text', completed: false }
    */
   const renderTodo = function (outputElement, todo) {
     const output = $(outputElement);
 
-    const todoEl = $('<div>').addClass('todo');
-
-    const label = $('<label>').addClass('fancy-checkbox');
-    const checkbox = $('<input type="checkbox">')
-      .attr('checked', todo.completed)
-      .addClass('completed')
-      .attr('data-id', todo._id);
-
-
-    label.append(checkbox);
-    label.append('<i class="fas fa-check-square checked">');
-    label.append('<i class="far fa-square unchecked">');
+    const todoEl = $('<div>').addClass('todo')
+      .attr('data-id', todo._id)
+      .addClass(todo.completed ? 'completed' : 'incomplete');
 
     todoEl.append(
-      label,
-
       $('<span>').text(todo.text).addClass('list-text'),
-
       $('<button>')
       .addClass('delete')
-      .attr('data-id', todo._id)
-      .append('<i>').addClass('fas fa-times')
+      .append('<i>').addClass(todo.completed ? 'far fa-times-circle' : 'far fa-circle')
     );
 
     output.append(todoEl);
@@ -66,7 +66,7 @@ $(function () {
 
   // ADD NEW TODO
   // Click listener for the submit button
-  $('.submit').on('click', function (event) {
+  $('form').on('submit', function (event) {
     event.preventDefault();
 
     // Here we grab the form elements
@@ -107,16 +107,15 @@ $(function () {
   });
 
   // UPDATE TODO COMPLETED STATUS
-  $('body').on('click', '.completed', function (event) {
+  $('body').on('click', '.incomplete', function (event) {
     const todoId = $(this).attr('data-id');
-    const completed = event.target.checked; // TODO use jquery for this
 
     // Make the PUT request
     $.ajax({
         url: `/api/todos/${todoId}`,
         method: 'PUT',
         data: {
-          completed: completed
+          completed: true
         },
       })
       .then(function (data) {
@@ -134,7 +133,7 @@ $(function () {
   })
 
   // DELETE TODO
-  $('body').on('click', '.delete', function (event) {
+  $('body').on('click', '.completed', function (event) {
     const todoId = $(this).attr('data-id');
 
     // Make the DELETE request
@@ -153,6 +152,13 @@ $(function () {
         }
 
       });
+  });
+
+  $("#new-todo-text").keypress(function(event) {
+      if (event.which == 13) {
+          event.preventDefault();
+          $("form").submit();
+      }
   });
 
   // fetch all todos and render them 

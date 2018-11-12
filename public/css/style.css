@@ -4,30 +4,56 @@ body {
 }
 
 header {
-  background: linear-gradient(to left top, rgb(132, 0, 255), rgb(226, 11, 136));
-  color: white;
+  display: grid;
+  color: black;
   font-size: 40pt;
   text-align: left;
-  padding: 20px;
-  margin-bottom: 1em;
+  padding: 10px;
+  /* margin-bottom: 1em; */
   font-weight: 100;
 }
 
+.date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 #new-todo-text {
-  width: 425px;
+  width: 420px;
   margin: 15px;
-  border-width: 1px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+  /* border-width: 1px; */
   font-weight: 400;
   font-size: 1.5rem;
   /* override to fill in input to match todos */
-  background-image: linear-gradient(rgb(242, 242, 242), rgb(242, 242, 242)), radial-gradient(circle at top left, #b60773, purple);
+  /* background-image: linear-gradient(rgb(242, 242, 242), rgb(242, 242, 242)), radial-gradient(circle at top left, #b60773, purple); */
 }
 
+#new-todo-text:focus {
+  outline: none;
+}
+.day {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: grey;
+  margin: 5px;
+}
+.month, .year {
+  font-size: 014pt;
+  margin: 5px;
+}
 .wrapper {
   width: 500px;
   height: 700px;
   margin-left: auto;
   margin-right: auto;
+  border: 2px solid transparent;
+  background-origin: border-box;
+  box-shadow: 2px 2px 2px 2px grey;
+  background-clip: content-box, border-box;
 }
 
 #todos {
@@ -36,16 +62,17 @@ header {
   grid-gap: 20px;
   padding: 15px;
   color: black;
+  text-transform: uppercase;
 }
 
 .todo {
-  background-color: rgb(242, 242, 242);
+  /* background-color: rgb(242, 242, 242); */
   border-radius: 10px;
   text-align: left;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   align-items: center;
-  font-weight: 400;
+  font-weight: 100;
 }
 
 .list-text {
@@ -61,11 +88,11 @@ header {
   font: inherit;
   background-color: transparent;
   cursor: pointer;
-  color: rgb(52, 65, 132);
+  color: teal;
 }
 
 .delete {
-  color: rgb(52, 65, 132);
+  color: teal;
 }
 
 .completed,
@@ -89,14 +116,12 @@ header {
 }
 
 /* rounded border with a gradient */
-.rounded-gradiant,
-.rounded-gradiant:focus {
+
+/* wrapper:focus {
   border: 2px solid transparent;
-  border-radius: 8px;
-  background-image: linear-gradient(white, white), radial-gradient(circle at top left, #b60773, purple);
   background-origin: border-box;
   background-clip: content-box, border-box;
-}
+} */
 
 /* media query for small screen */
 @media only screen and (max-width: 600px) {
