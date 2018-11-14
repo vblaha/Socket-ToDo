@@ -5,7 +5,7 @@ body {
 
 header {
   display: grid;
-  color: black;
+  color:rgb(94,97,111);
   font-size: 40pt;
   text-align: left;
   padding: 10px;
@@ -38,7 +38,7 @@ header {
 .day {
   font-weight: 700;
   text-transform: uppercase;
-  color: grey;
+  color: gr;
   margin: 5px;
 }
 .month, .year {
@@ -50,7 +50,8 @@ header {
   height: 700px;
   margin-left: auto;
   margin-right: auto;
-  border: 2px solid transparent;
+  margin-top: 50px;
+  /* border: 2px solid transparent; */
   background-origin: border-box;
   box-shadow: 2px 2px 2px 2px grey;
   background-clip: content-box, border-box;
@@ -61,7 +62,7 @@ header {
   grid-template-rows: auto;
   grid-gap: 20px;
   padding: 15px;
-  color: black;
+  color:rgb(94,97,111);
   text-transform: uppercase;
 }
 
@@ -88,16 +89,15 @@ header {
   font: inherit;
   background-color: transparent;
   cursor: pointer;
-  color: teal;
+  color:rgb(44,197,225);
 }
 
-.delete {
-  color: teal;
-}
 
+.completed {
+color: lightgray; 
+}
 .completed,
 .fancy-checkbox {
-  color: black;
   cursor: pointer;
 }
 

@@ -109,6 +109,8 @@ $(function () {
   // UPDATE TODO COMPLETED STATUS
   $('body').on('click', '.incomplete', function (event) {
     const todoId = $(this).attr('data-id');
+    // $('<span>').text(todo.text).addClass('')
+
 
     // Make the PUT request
     $.ajax({
